@@ -7,6 +7,7 @@
 <br>
 
 <?php
+date_default_timezone_set('Asia/Jakarta');
 
 // Simple Url Shortener
 // By Viloid
@@ -25,7 +26,8 @@ $f = file_get_contents("db.txt");
 preg_match('/'.$g.'="(.*?)"/',$f,$d);
 // Logger ip visitor
 sv("logip.txt",date('d-M-Y H:i:s')." | ".$_SERVER['REMOTE_ADDR']." | ".$d[1]);
-header('location: '.$d[1]);
+//header('location: '.$d[1]);
+echo '<meta http-equiv="refresh" content="0; url='.$d[1].'" />';
 }
 
 function acak($p){ 
